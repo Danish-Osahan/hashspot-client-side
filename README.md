@@ -6,3 +6,7 @@ Frontend: For frontend part i used two libraries first one is "Material Ui " and
 Backend: For backend part i used "Mongodb Atlas" which is a cloud database. You can also use "Mongodb Compass" which is also a good database but using a cloud database is always good and it is also easy to deploy. I used " Heroku" to deploy my backend .
 
 The whole website is deployed on Heroku and Netlify .
+
+The whole code is divided into two separate "Respositries" for convinince purposes. The first part contain the " Client Side " code and the second part contain the " Server Side " code.
+
+You can access the both "Respositries".
