@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  useEffect } from "react";
+// import {  useEffect } from "react";
 import {
   Paper,
   Container,
@@ -11,9 +11,9 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "./styles";
 import Input from "./input";
-import { GoogleLogin } from "react-google-login";
-import Icon from "./Icon";
-import { gapi } from "gapi-script";
+// import { GoogleLogin } from "react-google-login";
+// import Icon from "./Icon";
+// import { gapi } from "gapi-script";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signin, signup } from "../../actions/auth";
@@ -41,17 +41,16 @@ const Auth = ({ mode }) => {
     borderRadius: "15px",
     // color: "white",
   };
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId:"302201485310-nmfjadp96qrl9ll5r88ouvfsildmd7hl.apps.googleusercontent.com",
-        scope: 'email',
-        plugin_name: "chat"
-      });
-    }
-
-    gapi.load('client:auth2', start);
-  }, []);
+  // useEffect(() => {
+  //   function start() {
+  //     gapi.client.init({
+  //       clientId:"302201485310-nmfjadp96qrl9ll5r88ouvfsildmd7hl.apps.googleusercontent.com",
+  //       scope: 'email',
+  //       plugin_name: "chat"
+  //     });
+  //   }
+  //   gapi.load('client:auth2', start);
+  // }, []);
   // window.gapi.load("client:auth2", () => {
   //   window.gapi.client.init({
   //     clientId: "302201485310-nmfjadp96qrl9ll5r88ouvfsildmd7hl.apps.googleusercontent.com",
@@ -80,33 +79,34 @@ const Auth = ({ mode }) => {
   const handleShowPassword = () => {
     setShowpassword((prevShowpassword) => !prevShowpassword);
   };
+  
   const switchMode = () => {
     setisSignup((previsSignup) => !previsSignup);
     setShowpassword(false);
   };
 
-  const googlesucces = async (res) => {
-    // console.log(res);
-    const result = res?.profileObj;
-    const token = res?.tokenId;
-    // console.log(result)
-    // console.log(token)
-    let data = { result, token };
-    try {
-      dispatch({ type: "AUTH", data });
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const googlesucces = async (res) => {
+  //   // console.log(res);
+  //   const result = res?.profileObj;
+  //   const token = res?.tokenId;
+  //   // console.log(result)
+  //   // console.log(token)
+  //   let data = { result, token };
+  //   try {
+  //     dispatch({ type: "AUTH", data });
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // const googlefailure = (error) => {
   //   console.log(error);
   //   console.log("Google sign in unsuccessfull");
   // };
   // const googleError = () => alert('Google Sign In was unsuccessful. Try again later')
-  const googleError = () =>
-    console.log("Google Sign In was unsuccessful. Try again later");
+  // const googleError = () =>
+  //   console.log("Google Sign In was unsuccessful. Try again later");
 
   let btn_light = {
     boxShadow:
@@ -186,7 +186,7 @@ const Auth = ({ mode }) => {
           >
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
-          <GoogleLogin
+          {/* <GoogleLogin
             clientId="302201485310-nmfjadp96qrl9ll5r88ouvfsildmd7hl.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button
@@ -206,7 +206,7 @@ const Auth = ({ mode }) => {
             onSuccess={googlesucces}
             onFailure={googleError}
             cookiePolicy="single_host_origin"
-          />
+          /> */}
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
